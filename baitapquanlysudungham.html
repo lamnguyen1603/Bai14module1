@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quản lý sản phẩm</title>
+</head>
+<body>
+<strong>Add New Product</strong>
+<br>
+<form>
+<input type="text" placeholder="New product" id="sp" >
+<input type="button" value="Add" onclick="themsp()">
+<br>
+</form>
+<strong>Display all product</strong>
+<p>product name</p>
+  <div id="litsp"></div>
+<script>
+  let tensp = ["Sony Xperia", 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redminote4', 'Apple Iphone 6S', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71'];
+  let sout;
+  function vebang(listsp) {
+    sout = "<table border='1' width='300' cellspacing='0' cellpadding='3'>"
+    for (i = 0; i < listsp.length; i++) {
+      sout = sout + "<tr>";
+      sout = sout + "<td>" + listsp[i] + "</td>";
+      sout = sout + "<td><button>edit</button></td>";
+      sout = sout + '<td><button onclick="xoasp('+ i +' )">Delete</button></td>';
+      sout = sout + "</tr>";
+    }
+    sout = sout + "</table>";
+    document.getElementById('litsp').innerHTML = sout;
+  }
+  vebang(tensp)
+  function themsp() {
+    console.log(1)
+    let n = document.getElementById("sp").value;
+    tensp.push(n)
+    vebang(tensp)
+  }
+  function xoasp(i) {
+    console.log(i)
+    tensp.splice(i,1)
+    vebang(tensp)
+  }
+  //đầu vào là i , sủa lại và cập nhật, giá trị mới nhập thẻ prompt
+  function suasp() {
+
+  }
+</script>
+
+
+</body>
+</html>
